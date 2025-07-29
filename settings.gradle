@@ -1,0 +1,54 @@
+pluginManagement {
+	repositories {
+		mavenLocal()
+		gradlePluginPortal()
+		mavenCentral()
+		maven { url = 'https://repo.spring.io/release' }
+		maven { url = 'https://repo.spring.io/milestone' }
+		maven { url = 'https://repo.spring.io/snapshot' }
+	}
+}
+
+plugins {
+	id 'io.spring.dependency-management' version "$dependencyManagementPluginVersion" apply false
+	id 'org.springframework.boot' version "$springBootVersion" apply false
+	id 'com.gorylenko.gradle-git-properties' version "$gitPluginVersion" apply false
+	id 'com.github.hierynomus.license' version "$licensePluginVersion" apply false
+}
+
+dependencyResolutionManagement {
+	repositories {
+		mavenLocal()
+
+		if (providers.gradleProperty('useChinaMavenRepositoryMirrors').getOrElse('true').toBoolean()) {
+			maven { url = 'https://maven.aliyun.com/repository/public/' }
+			maven { url = 'https://mirrors.cloud.tencent.com/nexus/repository/maven-public/' }
+			maven { url = 'https://repo.huaweicloud.com/repository/maven/' }
+			maven { url = 'https://maven.jdcloud.com/repos/content/groups/public/' }
+			maven { url = 'https://mirrors.163.com/maven/repository/maven-public/' }
+		}
+
+		mavenCentral()
+		gradlePluginPortal()
+
+		if (providers.gradleProperty('useSpringMavenRepositoryMirrors').getOrElse('true').toBoolean()) {
+			maven { url = 'https://repo.spring.io/release' }
+			maven { url = 'https://repo.spring.io/milestone' }
+			maven { url = 'https://repo.spring.io/snapshot' }
+		}
+
+		google()
+	}
+
+	repositoriesMode = RepositoriesMode.FAIL_ON_PROJECT_REPOS
+}
+
+rootProject.name = 'java-gradle-app-skeleton'
+
+include 'project-bom'
+
+['projects-app', 'projects-lib'].each {
+	file(it).eachDirMatch(~/.*/) { projectDir ->
+		include "$it:${projectDir.name}"
+	}
+}

@@ -2,10 +2,10 @@ plugins {
 	id 'base'
 }
 
-defaultTasks 'classes'
+defaultTasks 'clean', 'classes'
 
 tasks.named('wrapper') {
-	distributionUrl = "https://mirrors.cloud.tencent.com/gradle/gradle-$gradleWrapperVersion-bin.zip"
+	distributionUrl = gradleWrapperDistributionUrl
 	networkTimeout = 30000
 	validateDistributionUrl = false
 }
@@ -19,10 +19,5 @@ tasks.register('pushToVcs', Exec) {
 }
 
 tasks.named('clean') {
-	//mustRunAfter(SharedFunctions.getLeafProjectNames(rootProject).collect { "$it:clean" })
-
-	delete fileTree(rootDir) {
-		include '**/.DS_Store'
-		include '**/*.log'
-	}
+	mustRunAfter(SharedFunctions.getLeafProjectNames(rootProject).collect { "$it:clean" })
 }

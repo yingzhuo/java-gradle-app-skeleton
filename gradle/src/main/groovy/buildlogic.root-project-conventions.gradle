@@ -1,0 +1,26 @@
+plugins {
+	id 'base'
+}
+
+defaultTasks 'classes'
+
+tasks.named('wrapper') {
+	if (providers.gradleProperty('useChinaGradleWrapperDistributionMirror').getOrElse('true').equalsIgnoreCase('true')) {
+		distributionUrl = gradleWrapperDistributionUrl
+	}
+	networkTimeout = 30000
+	validateDistributionUrl = false
+	distributionType = Wrapper.DistributionType.ALL
+}
+
+tasks.register('pushToVcs', Exec) {
+	group = 'vcs'
+	description = 'Commit and push codes to the vcs.'
+
+	workingDir("$rootDir")
+	commandLine('bash', "$rootDir/gradle/config/vcs/push.sh")
+}
+
+tasks.named('clean') {
+	mustRunAfter(SharedFunctions.getLeafProjectNames(rootProject).collect { "$it:clean" })
+}

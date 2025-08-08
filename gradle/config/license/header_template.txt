@@ -1,0 +1,2 @@
+Copyright (c) ${inceptionYear}-${presentYear} ${companyName}.
+All rights reserved.

@@ -1,0 +1,5 @@
+plugins {
+	id 'base'
+}
+
+description = '主要可执行应用程序'

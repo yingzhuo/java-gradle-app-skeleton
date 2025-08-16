@@ -44,10 +44,10 @@ compile:
 	$(GRADLEW) 'classes'
 
 build:
-	$(GRADLEW) 'build' -x 'test' -x 'check' --no-parallel
+	$(GRADLEW) 'build' -x 'test' -x 'check'
 
 build-docker-image:
-	$(GRADLEW) 'buildDockerImage' -x 'test' -x 'check' --no-parallel
+	$(GRADLEW) 'buildDockerImage' -x 'test' -x 'check'
 
 remove-docker-image:
 	$(GRADLEW) 'removeDockerImage'

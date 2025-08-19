@@ -10,11 +10,14 @@ ext {
 	// https://docs.spring.io/spring-boot/appendix/dependency-versions/properties.html
 }
 
-subprojects {
+allprojects {
+	group = thisProjectGroup
+	version = thisProjectVersion
+
 	configurations.configureEach {
 		resolutionStrategy {
-			cacheChangingModulesFor 12, 'hours'
-			cacheDynamicVersionsFor 12, 'hours'
+			cacheChangingModulesFor 24, 'hours'
+			cacheDynamicVersionsFor 24, 'hours'
 
 			exclude group: 'org.apache.logging.log4j', module: 'log4j-api'
 			exclude group: 'org.apache.logging.log4j', module: 'log4j-to-slf4j'
@@ -22,7 +25,5 @@ subprojects {
 	}
 }
 
-allprojects {
-	group = thisProjectGroup
-	version = thisProjectVersion
+subprojects {
 }

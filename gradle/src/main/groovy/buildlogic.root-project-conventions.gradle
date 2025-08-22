@@ -5,9 +5,7 @@ plugins {
 defaultTasks 'classes'
 
 tasks.named('wrapper') {
-	if (providers.gradleProperty('useChinaGradleWrapperDistributionMirror').getOrElse('true').equalsIgnoreCase('true')) {
-		distributionUrl = gradleWrapperDistributionUrl
-	}
+	distributionUrl = gradleWrapperDistributionUrl
 	networkTimeout = 30000
 	validateDistributionUrl = false
 	distributionType = Wrapper.DistributionType.ALL

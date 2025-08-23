@@ -50,6 +50,9 @@ dependencies {
 	compileOnly 'org.springframework:spring-context-indexer'
 	annotationProcessor 'org.springframework:spring-context-indexer'
 
+	// spring-security
+	testImplementation 'org.springframework.security:spring-security-test'
+
 	// spring-retry
 	api 'org.springframework.retry:spring-retry'
 

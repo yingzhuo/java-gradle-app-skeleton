@@ -27,7 +27,3 @@ allprojects {
 
 subprojects {
 }
-
-tasks.named('clean') {
-	onlyIf { gradle.gradleVersion >= '8.14.3' }
-}

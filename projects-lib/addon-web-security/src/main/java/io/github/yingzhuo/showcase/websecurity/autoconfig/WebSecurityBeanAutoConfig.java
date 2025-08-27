@@ -5,11 +5,14 @@
 package io.github.yingzhuo.showcase.websecurity.autoconfig;
 
 import com.auth0.jwt.algorithms.Algorithm;
+import io.github.yingzhuo.showcase.websecurity.filter.LoggingFilter;
 import io.github.yingzhuo.showcase.websecurity.jwt.GenericAlgorithm;
 import io.github.yingzhuo.showcase.websecurity.jwt.JwtCreator;
 import io.github.yingzhuo.showcase.websecurity.jwt.JwtCreatorImpl;
 import org.springframework.boot.autoconfigure.condition.ConditionalOnMissingBean;
+import org.springframework.boot.web.servlet.FilterRegistration;
 import org.springframework.context.annotation.Bean;
+import org.springframework.core.Ordered;
 import org.springframework.core.io.ResourceLoader;
 import org.springframework.security.crypto.argon2.Argon2PasswordEncoder;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
@@ -55,6 +58,12 @@ public class WebSecurityBeanAutoConfig {
 		var encoder = new DelegatingPasswordEncoder(encodingId, encoders);
 		encoder.setDefaultPasswordEncoderForMatches(encoders.get("MD5"));
 		return encoder;
+	}
+
+	@Bean
+	@FilterRegistration(name = "loggingFilter", urlPatterns = "/*", order = Ordered.HIGHEST_PRECEDENCE)
+	public LoggingFilter loggingFilter() {
+		return new LoggingFilter();
 	}
 
 }

@@ -25,7 +25,7 @@ tasks.register('buildDockerImage', Exec) {
 	description = 'Build docker image.'
 
 	dependsOn 'prepareDockerContext'
-	//finalizedBy 'cleanPrepareDockerContext'
+	finalizedBy 'cleanPrepareDockerContext'
 
 	commandLine('bash', "$rootDir/gradle/config/docker/build-image.sh", "$dockerImageTag")
 	workingDir(layout.buildDirectory.dir('dockerContext'))

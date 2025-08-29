@@ -8,7 +8,7 @@ plugins {
 }
 
 java {
-	final var javaVersionInt = jdkVersion as Integer
+	var javaVersionInt = jdkVersion as Integer
 	sourceCompatibility = JavaVersion.toVersion(javaVersionInt)
 	targetCompatibility = JavaVersion.toVersion(javaVersionInt)
 
@@ -46,7 +46,7 @@ javadoc {
 
 	options {
 		locale = 'en_US'
-		encoding = 'UTF-8'
+		encoding = defaultEncoding
 	}
 }
 
@@ -67,7 +67,7 @@ processResources {
 	from('src/main/resources') {
 		include('**/*.yaml', '**/*.yml', '**/*.properties', '**/*.xml', '**/banner.txt')
 		filter(ReplaceTokens, 'tokens': replaceTokenMap)
-		filteringCharset = 'UTF-8'
+		filteringCharset = defaultEncoding
 	}
 
 	duplicatesStrategy = DuplicatesStrategy.INCLUDE

@@ -26,10 +26,10 @@ usage:
 	@echo '======================================================================'
 
 clean:
-	$(GRADLEW) 'clean'
+	@$(GRADLEW) 'clean' -q
 
 clean-buildsrc:
-	$(GRADLEW) ':gradle:clean'
+	@$(GRADLEW) ':gradle:clean' -q
 
 purge: clean clean-buildsrc
 	@find $(MAKEFILE_PATH) -type f -name ".DS_Store" -delete
@@ -38,46 +38,46 @@ purge: clean clean-buildsrc
 	@rm -rf $(MAKEFILE_PATH)/gradle/.gradle/
 
 refresh-dependencies:
-	$(GRADLEW) -U
+	@$(GRADLEW) -U
 
 compile:
-	$(GRADLEW) 'classes'
+	@$(GRADLEW) 'classes'
 
 build:
-	$(GRADLEW) 'build' -x 'test' -x 'check'
+	@$(GRADLEW) 'build' -x 'test' -x 'check'
 
 build-docker-image:
-	$(GRADLEW) 'buildDockerImage' -x 'test' -x 'check'
+	@$(GRADLEW) 'buildDockerImage' -x 'test' -x 'check'
 
 remove-docker-image:
-	$(GRADLEW) 'removeDockerImage'
+	@$(GRADLEW) 'removeDockerImage'
 
 check:
-	$(GRADLEW) 'check'
+	@$(GRADLEW) 'check'
 
 test:
-	$(GRADLEW) 'test'
+	@$(GRADLEW) 'test'
 
 setup-gradle-wrapper:
-	$(GRADLEW) 'wrapper'
+	@$(GRADLEW) 'wrapper' -q
 
 stop-gradle-daemon:
-	$(GRADLEW) --stop
+	@$(GRADLEW) --stop -q
 
 update-license-header:
-	$(GRADLEW) 'licenseFormat'
+	@$(GRADLEW) 'licenseFormat' -q
 
 push-to-vcs: update-license-header
-	$(GRADLEW) 'pushToVcs'
+	@$(GRADLEW) 'pushToVcs'
 
 describe-project:
-	$(GRADLEW) 'projects'
+	@$(GRADLEW) 'projects' -q
 
 describe-task:
-	$(GRADLEW) 'tasks'
+	@$(GRADLEW) 'tasks' -q
 
 run-core-app: build
-	$(GRADLEW) ':projects-app:core:bootRun'
+	@$(GRADLEW) ':projects-app:core:bootRun'
 
 .PHONY: usage \
 	clean clean-buildsrc purge \

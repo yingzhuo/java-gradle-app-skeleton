@@ -1,5 +1,0 @@
-plugins {
-	id 'base'
-}
-
-description = '库级别程序'

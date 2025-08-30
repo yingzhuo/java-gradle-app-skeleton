@@ -12,7 +12,6 @@ import io.github.yingzhuo.showcase.websecurity.jwt.JwtCreatorImpl;
 import org.springframework.boot.autoconfigure.condition.ConditionalOnMissingBean;
 import org.springframework.boot.web.servlet.FilterRegistration;
 import org.springframework.context.annotation.Bean;
-import org.springframework.core.Ordered;
 import org.springframework.core.io.ResourceLoader;
 import org.springframework.security.crypto.argon2.Argon2PasswordEncoder;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
@@ -23,6 +22,7 @@ import java.io.IOException;
 import java.util.HashMap;
 
 import static java.nio.charset.StandardCharsets.UTF_8;
+import static org.springframework.core.Ordered.HIGHEST_PRECEDENCE;
 
 public class WebSecurityBeanAutoConfig {
 
@@ -61,7 +61,7 @@ public class WebSecurityBeanAutoConfig {
 	}
 
 	@Bean
-	@FilterRegistration(name = "loggingFilter", urlPatterns = "/*", order = Ordered.HIGHEST_PRECEDENCE)
+	@FilterRegistration(name = "loggingFilter", urlPatterns = "/*", order = HIGHEST_PRECEDENCE)
 	public LoggingFilter loggingFilter() {
 		return new LoggingFilter();
 	}

@@ -39,6 +39,6 @@ license {
 	ext {
 		inceptionYear = 2024
 		presentYear = LocalDate.now(ZoneId.of(timezone)).year
-		companyName = 'ABC Company'
+		companyName = 'Unknown Company'
 	}
 }

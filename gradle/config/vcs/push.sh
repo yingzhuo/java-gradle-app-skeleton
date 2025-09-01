@@ -14,6 +14,5 @@ git commit -m "$TIMESTAMP"
 
 REMOTES=$(git remote)
 for remote in $REMOTES; do
-    echo "[INFO] 正在推送至远程仓库：$remote"
     git push "$remote" HEAD --force
 done

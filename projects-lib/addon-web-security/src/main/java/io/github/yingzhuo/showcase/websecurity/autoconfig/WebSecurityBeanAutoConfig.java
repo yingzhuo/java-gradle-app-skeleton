@@ -24,6 +24,7 @@ import java.util.HashMap;
 import static java.nio.charset.StandardCharsets.UTF_8;
 import static org.springframework.core.Ordered.HIGHEST_PRECEDENCE;
 
+@SuppressWarnings("deprecation")
 public class WebSecurityBeanAutoConfig {
 
 	@Bean
@@ -39,7 +40,6 @@ public class WebSecurityBeanAutoConfig {
 
 	@Bean
 	@ConditionalOnMissingBean(PasswordEncoder.class)
-	@SuppressWarnings("deprecation")
 	public PasswordEncoder passwordEncoder() {
 		String encodingId = "bcrypt";
 		var encoders = new HashMap<String, PasswordEncoder>();

@@ -7,7 +7,7 @@ package io.github.yingzhuo.showcase.core;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.scheduling.annotation.EnableAsync;
 
-@Configuration
 @EnableAsync
+@Configuration
 public class ApplicationBootBean {
 }

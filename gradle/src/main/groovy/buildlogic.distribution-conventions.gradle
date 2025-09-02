@@ -21,7 +21,7 @@ distributions {
 }
 
 tasks.named('distZip') {
-	enabled = false
+	enabled = true
 }
 
 tasks.named('distTar') {

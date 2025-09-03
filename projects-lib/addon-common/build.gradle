@@ -39,4 +39,8 @@ dependencies {
 
 	// slf4j
 	api 'org.slf4j:slf4j-api'
+
+	// other
+	api 'org.apache.commons:commons-lang3'
+	api 'commons-codec:commons-codec'
 }

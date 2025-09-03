@@ -8,12 +8,11 @@ ext {
 	// SpringBoot BOM 版本微调
 	// https://docs.spring.io/spring-boot/appendix/dependency-versions/coordinates.html
 	// https://docs.spring.io/spring-boot/appendix/dependency-versions/properties.html
+	set('commons-lang3.version', '3.18.0')
+	set('commons-codec.version', '1.19.0')
 }
 
-allprojects {
-	group = thisProjectGroup
-	version = thisProjectVersion
-
+subprojects {
 	configurations.configureEach {
 		resolutionStrategy {
 			cacheChangingModulesFor 24, 'hours'
@@ -23,4 +22,9 @@ allprojects {
 			exclude group: 'org.apache.logging.log4j', module: 'log4j-to-slf4j'
 		}
 	}
+}
+
+allprojects {
+	group = thisProjectGroup
+	version = thisProjectVersion
 }

@@ -13,12 +13,6 @@ ext {
 	set('dockerImageTag', 'yingzhuo/java-gradle-app-skeleton:latest')
 }
 
-dependencyManagement {
-	imports {
-		mavenBom "org.springframework.boot:spring-boot-dependencies:$springBootVersion"
-	}
-}
-
 dependencies {
 
 	// project

@@ -6,12 +6,6 @@ plugins {
 
 description = 'spring-boot-starter - Json'
 
-dependencyManagement {
-	imports {
-		mavenBom "org.springframework.boot:spring-boot-dependencies:$springBootVersion"
-	}
-}
-
 dependencies {
 
 	// project

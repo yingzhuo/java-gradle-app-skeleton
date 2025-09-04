@@ -6,12 +6,6 @@ plugins {
 
 description = 'spring-boot-starter - 通用工具及杂项'
 
-dependencyManagement {
-	imports {
-		mavenBom "org.springframework.boot:spring-boot-dependencies:$springBootVersion"
-	}
-}
-
 dependencies {
 
 	// project

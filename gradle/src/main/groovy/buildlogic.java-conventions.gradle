@@ -1,10 +1,17 @@
 import org.apache.tools.ant.filters.ReplaceTokens
+import org.springframework.boot.gradle.plugin.SpringBootPlugin
 
 plugins {
 	id 'java'
 	id 'java-library'
 	id 'idea'
 	id 'io.spring.dependency-management'
+}
+
+dependencyManagement {
+	imports {
+		mavenBom(SpringBootPlugin.BOM_COORDINATES)
+	}
 }
 
 java {

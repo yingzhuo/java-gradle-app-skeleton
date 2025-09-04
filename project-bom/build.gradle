@@ -10,5 +10,7 @@ dependencies {
 		api 'com.auth0:java-jwt:4.5.0'
 		api 'org.bouncycastle:bcprov-jdk18on:1.81'
 		api 'cn.hutool:hutool-crypto:5.8.40'
+		api 'org.apache.commons:commons-lang3:3.18.0'
+		api 'commons-codec:commons-codec:1.19.0'
 	}
 }

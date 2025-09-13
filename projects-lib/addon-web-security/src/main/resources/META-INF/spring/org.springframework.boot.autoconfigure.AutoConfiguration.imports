@@ -1,0 +1,7 @@
+#
+# Copyright (c) 2024-2025 Unknown Company.
+# All rights reserved.
+#
+
+io.github.yingzhuo.showcase.websecurity.autoconfig.WebSecurityBeanAutoConfig
+io.github.yingzhuo.showcase.websecurity.autoconfig.WebSecurityFilterAutoConfig

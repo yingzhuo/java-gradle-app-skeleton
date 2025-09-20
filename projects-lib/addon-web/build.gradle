@@ -1,0 +1,32 @@
+plugins {
+	id 'buildlogic.java-conventions'
+	id 'buildlogic.check-conventions'
+	id 'buildlogic.license-conventions'
+}
+
+description = 'spring-boot-starter - Web'
+
+dependencies {
+
+	// project
+	api platform(project(':project-bom'))
+	api project(':projects-lib:addon-common')
+
+	// spring-boot & spring
+	testImplementation 'org.springframework.boot:spring-boot-starter-test'
+	compileOnly 'org.springframework.boot:spring-boot-autoconfigure'
+	compileOnly 'org.springframework.boot:spring-boot-starter-aop'
+	compileOnly 'org.springframework.boot:spring-boot-starter-json'
+	compileOnly 'org.springframework.boot:spring-boot-starter-logging'
+	compileOnly 'org.springframework.boot:spring-boot-starter-validation'
+	compileOnly 'org.springframework.boot:spring-boot-configuration-processor'
+	annotationProcessor 'org.springframework.boot:spring-boot-configuration-processor'
+	api 'org.springframework.boot:spring-boot-starter-web'
+
+	// lombok
+	compileOnly 'org.projectlombok:lombok'
+	annotationProcessor 'org.projectlombok:lombok'
+
+	// slf4j
+	api 'org.slf4j:slf4j-api'
+}

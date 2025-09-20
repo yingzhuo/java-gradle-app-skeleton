@@ -1,0 +1,11 @@
+#
+# Copyright (c) 2024-2025 Unknown Company.
+# All rights reserved.
+#
+
+org.springframework.boot.env.EnvironmentPostProcessor=\
+io.github.yingzhuo.showcase.spring.SpringUtils.Hook
+org.springframework.context.ApplicationListener=\
+io.github.yingzhuo.showcase.spring.SpringUtils.Hook
+org.springframework.core.io.ProtocolResolver=\
+io.github.yingzhuo.showcase.spring.PemResourceProtocolResolver

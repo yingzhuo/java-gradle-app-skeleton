@@ -1,0 +1,24 @@
+plugins {
+	id 'java-platform'
+}
+
+description = '本项目BOM'
+
+dependencies {
+	constraints {
+		// 安全相关
+		api 'com.auth0:java-jwt:4.5.0'
+		api 'org.bouncycastle:bcprov-jdk18on:1.81'
+		api 'cn.hutool:hutool-crypto:5.8.40'
+
+		// DB相关工具
+		api 'com.baomidou:mybatis-plus-spring-boot3-starter:3.5.14'
+		api 'org.mybatis:mybatis:3.5.19'
+		api 'org.mybatis:mybatis-spring:3.0.5'
+
+		// 通用工具
+		api 'com.google.guava:guava:33.4.8-jre'
+		api 'org.apache.commons:commons-lang3:3.18.0'
+		api 'commons-codec:commons-codec:1.19.0'
+	}
+}

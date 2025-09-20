@@ -1,0 +1,22 @@
+plugins {
+	id 'groovy-gradle-plugin'
+}
+
+['../gradle.properties', 'gradle.properties']
+	.stream()
+	.map { file(it) }
+	.filter { it.exists() && it.isFile() }
+	.forEach {
+		it.withInputStream { stream ->
+			var props = new Properties()
+			props.load(stream)
+			props.forEach(ext::set)
+		}
+	}
+
+dependencies {
+	implementation "io.spring.dependency-management:io.spring.dependency-management.gradle.plugin:$dependencyManagementPluginVersion"
+	implementation "org.springframework.boot:spring-boot-gradle-plugin:$springBootVersion"
+	implementation "com.github.hierynomus.license:com.github.hierynomus.license.gradle.plugin:$licensePluginVersion"
+	implementation "com.gorylenko.gradle-git-properties:gradle-git-properties:$gitPluginVersion"
+}

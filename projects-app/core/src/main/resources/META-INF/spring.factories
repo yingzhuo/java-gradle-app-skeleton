@@ -1,0 +1,7 @@
+#
+# Copyright (c) 2024-2025 Unknown Company.
+# All rights reserved.
+#
+
+org.springframework.context.ApplicationListener=\
+org.springframework.boot.context.ApplicationPidFileWriter

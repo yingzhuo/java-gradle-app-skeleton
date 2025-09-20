@@ -1,0 +1,29 @@
+plugins {
+	id 'buildlogic.root-project-conventions'
+}
+
+description = '根项目'
+
+ext {
+	// SpringBoot BOM 版本微调
+	// https://docs.spring.io/spring-boot/appendix/dependency-versions/coordinates.html
+	// https://docs.spring.io/spring-boot/appendix/dependency-versions/properties.html
+	set('snakeyaml.version', '2.5')
+}
+
+subprojects {
+	configurations.configureEach {
+		resolutionStrategy {
+			cacheChangingModulesFor(24, 'hours')
+			cacheDynamicVersionsFor(24, 'hours')
+
+			exclude group: 'org.apache.logging.log4j', module: 'log4j-api'
+			exclude group: 'org.apache.logging.log4j', module: 'log4j-to-slf4j'
+		}
+	}
+}
+
+allprojects {
+	group = thisProjectGroup
+	version = thisProjectVersion
+}

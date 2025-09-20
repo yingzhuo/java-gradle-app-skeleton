@@ -1,0 +1,59 @@
+plugins {
+	id 'buildlogic.java-conventions'
+	id 'buildlogic.spring-boot-conventions'
+	id 'buildlogic.check-conventions'
+	id 'buildlogic.docker-conventions'
+	id 'buildlogic.distribution-conventions'
+	id 'buildlogic.license-conventions'
+}
+
+description = '主程序'
+
+ext {
+	set('dockerImageTag', 'yingzhuo/java-gradle-app-skeleton:latest')
+}
+
+dependencies {
+
+	// project
+	api platform(project(':project-bom'))
+	api project(':projects-lib:addon-common')
+	api project(':projects-lib:addon-json')
+	api project(':projects-lib:addon-web')
+	api project(':projects-lib:addon-web-security')
+
+	// spring-boot
+	testImplementation 'org.springframework.boot:spring-boot-starter-test'
+	compileOnly 'org.springframework.boot:spring-boot-configuration-processor'
+	annotationProcessor 'org.springframework.boot:spring-boot-configuration-processor'
+	api 'org.springframework.boot:spring-boot-starter-web'
+	api 'org.springframework.boot:spring-boot-starter-actuator'
+	api 'org.springframework.boot:spring-boot-starter-aop'
+	api 'org.springframework.boot:spring-boot-starter-logging'
+	api 'org.springframework.boot:spring-boot-starter-validation'
+	api 'org.springframework.boot:spring-boot-starter-json'
+	api 'org.springframework.boot:spring-boot-starter-security'
+
+	// groovy
+	api 'org.apache.groovy:groovy'
+
+	// spring-boot-devtools
+	developmentOnly 'org.springframework.boot:spring-boot-devtools'
+
+	// spring-framework
+	compileOnly 'org.springframework:spring-context-indexer'
+	annotationProcessor 'org.springframework:spring-context-indexer'
+
+	// spring-security
+	testImplementation 'org.springframework.security:spring-security-test'
+
+	// spring-retry
+	api 'org.springframework.retry:spring-retry'
+
+	// lombok
+	compileOnly 'org.projectlombok:lombok'
+	annotationProcessor 'org.projectlombok:lombok'
+
+	// slf4j
+	api 'org.slf4j:slf4j-api'
+}

@@ -1,0 +1,44 @@
+import java.time.LocalDate
+import java.time.ZoneId
+
+plugins {
+	id 'com.github.hierynomus.license'
+}
+
+license {
+	includes([
+		'**/*.java',
+		'**/*.kt',
+		'**/*.scala',
+		'**/*.groovy',
+		'**/spring.factories',
+		'**/org.springframework.boot.autoconfigure.AutoConfiguration.imports'
+	])
+
+	excludes([
+		'**/*.properties',
+		'**/*.xml',
+		'**/*.yaml', '**/*.yml',
+		'**/*.conf',
+		'**/*.toml',
+		'**/*.json', '**/*.json5',
+		'**/*.pem',
+		'**/*.ftl',
+		'**/banner.txt'
+	])
+
+	header = rootProject.file('buildSrc/config/license/header_template.txt')
+	strictCheck = true
+
+	mapping('java', 'SLASHSTAR_STYLE')
+	mapping('kt', 'SLASHSTAR_STYLE')
+	mapping('groovy', 'SLASHSTAR_STYLE')
+	mapping('factories', 'SCRIPT_STYLE')
+	mapping('imports', 'SCRIPT_STYLE')
+
+	ext {
+		inceptionYear = 2024
+		presentYear = LocalDate.now(ZoneId.of(defaultTimezone)).year
+		companyName = 'Unknown Company'
+	}
+}

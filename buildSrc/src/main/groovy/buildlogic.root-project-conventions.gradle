@@ -1,0 +1,33 @@
+plugins {
+	id 'base'
+}
+
+defaultTasks 'build'
+
+tasks.named('wrapper') {
+	distributionUrl = "https://mirrors.cloud.tencent.com/gradle/gradle-$gradleWrapperVersion-bin.zip"
+	networkTimeout = 60000
+	validateDistributionUrl = false
+	distributionType = Wrapper.DistributionType.ALL
+}
+
+tasks.register('pushToVcs', Exec) {
+	group = 'vcs'
+	description = 'Commit and push codes to the version control system.'
+
+	workingDir("$rootDir")
+	commandLine('bash', "$rootDir/buildSrc/config/vcs/push.sh")
+}
+
+tasks.named('clean') {
+	finalizedBy 'tidy'
+}
+
+tasks.register('tidy', DefaultTask) {
+	group = 'build'
+	description = 'Deletes useless files.'
+
+	delete fileTree(projectDir) {
+		include '**/.DS_Store', '**/*.log', '**/*.hprof', '**/hs_err_pid*'
+	}
+}

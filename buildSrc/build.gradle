@@ -15,8 +15,8 @@ plugins {
 	}
 
 dependencies {
-	implementation "io.spring.dependency-management:io.spring.dependency-management.gradle.plugin:$dependencyManagementPluginVersion"
-	implementation "org.springframework.boot:spring-boot-gradle-plugin:$springBootVersion"
-	implementation "com.github.hierynomus.license:com.github.hierynomus.license.gradle.plugin:$licensePluginVersion"
-	implementation "com.gorylenko.gradle-git-properties:gradle-git-properties:$gitPluginVersion"
+	//implementation "io.spring.dependency-management:io.spring.dependency-management.gradle.plugin:$dependencyManagementPluginVersion"
+	//implementation "org.springframework.boot:spring-boot-gradle-plugin:$springBootVersion"
+	//implementation "com.github.hierynomus.license:com.github.hierynomus.license.gradle.plugin:$licensePluginVersion"
+	//implementation "com.gorylenko.gradle-git-properties:gradle-git-properties:$gitPluginVersion"
 }

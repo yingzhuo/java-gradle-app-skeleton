@@ -1,0 +1,22 @@
+plugins {
+	id 'java-platform'
+}
+
+description = '本项目物料清单'
+
+javaPlatform {
+}
+
+dependencies {
+	constraints {
+		// spring-modulith
+		api "org.springframework.modulith:spring-modulith-bom:$springModulithVersion"
+
+		// 通用工具
+		api 'com.google.guava:guava:33.5.0-jre'
+
+		// mapstruct
+		api 'org.mapstruct:mapstruct:1.6.3'
+		api 'org.mapstruct:mapstruct-processor:1.6.3'
+	}
+}

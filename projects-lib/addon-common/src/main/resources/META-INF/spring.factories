@@ -1,0 +1,6 @@
+org.springframework.boot.EnvironmentPostProcessor=\
+io.github.yingzhuo.showcase.spring.SpringUtils.Hook
+org.springframework.context.ApplicationListener=\
+io.github.yingzhuo.showcase.spring.SpringUtils.Hook
+org.springframework.core.io.ProtocolResolver=\
+io.github.yingzhuo.showcase.spring.PemResourceProtocolResolver

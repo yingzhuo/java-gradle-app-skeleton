@@ -1,0 +1,15 @@
+plugins {
+	id 'org.hidetake.ssh'
+}
+
+remotes {
+	// golf等名字是服务器别名
+	golf {
+		host = '47.113.195.113'
+		user = 'root'
+		identity = file("${System.getProperty('user.home')}/.ssh/id_rsa")
+		passphrase = null
+		port = 22
+		dryRun = getProperty('remoteDeploymentDryRun') ?: 'false' as boolean
+	}
+}

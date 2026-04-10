@@ -5,7 +5,7 @@ plugins {
 	id 'buildlogic.docker-conventions'
 	id 'buildlogic.distribution-conventions'
 	id 'buildlogic.license-conventions'
-	id 'buildlogic.ssh-conventions'
+	//id 'buildlogic.ssh-conventions'
 }
 
 description = '主程序'
@@ -39,7 +39,6 @@ dependencies {
 	developmentOnly 'org.springframework.boot:spring-boot-devtools'
 
 	// spring-modulith
-	api platform('org.springframework.modulith:spring-modulith-bom')
 	api 'org.springframework.modulith:spring-modulith-starter-core'
 
 	// groovy
@@ -67,41 +66,41 @@ dependencies {
 	api 'com.google.guava:guava'
 }
 
-tasks.register('deploy') {
-	dependsOn 'build'
-	description = 'Deploy the uber-jar to remote server.'
-	group = 'deployment'
-
-	doLast {
-		ssh.run {
-			session(remotes.golf) {
-				final var remoteDeployDir = '/root/workspace/JavaApplication/skeleton-core'
-				final var localJarFile = bootJar.getArchiveFile().get().asFile
-				final var localJarFileName = localJarFile.name
-				final var remoteServiceName = 'skeleton-core.service'
-				final var dryRunModeEnabled = remotes.golf.dryRun
-
-				if (dryRunModeEnabled) {
-					println "[INFO] DryRun"
-				}
-				println "[INFO] 连接远程服务器"
-
-				println "[INFO] 停止远程Java应用: $remoteServiceName"
-				execute "sudo systemctl stop $remoteServiceName"
-
-				println "[INFO] 上传文件到远程服务器目录"
-				println "[INFO]   本地: ${localJarFile.getAbsolutePath()}"
-				println "[INFO]   远程: ${remoteDeployDir}/${localJarFileName}"
-				put from: localJarFile.toString(), into: remoteDeployDir
-
-				println "[INFO] 启动远程Java应用: $remoteServiceName"
-				execute """
-				cd $remoteDeployDir
-				sudo ln -sf $remoteDeployDir/$localJarFileName $remoteDeployDir/skeleton.jar
-				sudo systemctl daemon-reload
-				sudo systemctl start $remoteServiceName
-				"""
-			}
-		}
-	}
-}
+//tasks.register('deploy') {
+//	dependsOn 'build'
+//	description = 'Deploy the uber-jar to remote server.'
+//	group = 'deployment'
+//
+//	doLast {
+//		ssh.run {
+//			session(remotes.golf) {
+//				final var remoteDeployDir = '/root/workspace/JavaApplication/skeleton-core'
+//				final var localJarFile = bootJar.getArchiveFile().get().asFile
+//				final var localJarFileName = localJarFile.name
+//				final var remoteServiceName = 'skeleton-core.service'
+//				final var dryRunModeEnabled = remotes.golf.dryRun
+//
+//				if (dryRunModeEnabled) {
+//					println "[INFO] DryRun"
+//				}
+//				println "[INFO] 连接远程服务器"
+//
+//				println "[INFO] 停止远程Java应用: $remoteServiceName"
+//				execute "sudo systemctl stop $remoteServiceName"
+//
+//				println "[INFO] 上传文件到远程服务器目录"
+//				println "[INFO]   本地: ${localJarFile.getAbsolutePath()}"
+//				println "[INFO]   远程: ${remoteDeployDir}/${localJarFileName}"
+//				put from: localJarFile.toString(), into: remoteDeployDir
+//
+//				println "[INFO] 启动远程Java应用: $remoteServiceName"
+//				execute """
+//				cd $remoteDeployDir
+//				sudo ln -sf $remoteDeployDir/$localJarFileName $remoteDeployDir/skeleton.jar
+//				sudo systemctl daemon-reload
+//				sudo systemctl start $remoteServiceName
+//				"""
+//			}
+//		}
+//	}
+//}

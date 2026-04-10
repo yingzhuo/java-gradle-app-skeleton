@@ -20,7 +20,7 @@ plugins {
 	id 'org.springframework.boot' version "$springBootVersion" apply false
 	id 'com.gorylenko.gradle-git-properties' version "$gitPluginVersion" apply false
 	id 'dev.yumi.gradle.licenser' version "$licensePluginVersion" apply false
-	id 'org.hidetake.ssh' version "$sshPluginVersion" apply false
+	//id 'org.hidetake.ssh' version "$sshPluginVersion" apply false
 }
 
 dependencyResolutionManagement {

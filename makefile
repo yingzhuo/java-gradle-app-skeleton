@@ -13,8 +13,7 @@ endif
 	update-dependencies compile build rebuild check test \
 	build-docker-image remove-docker-image \
 	update-gradle-wrapper update-license-header \
-	push-to-vcs \
-	deploy
+	push-to-vcs
 
 usage:
 	@echo '=============================================================================================================='
@@ -83,5 +82,5 @@ update-license-header:
 push-to-vcs: update-license-header
 	@$(GRADLEW) 'pushToVcs' -q
 
-deploy:
-	@$(GRADLEW) ':projects-app:core:deploy' -x 'test' -x 'check' -q
+#deploy:
+#	@$(GRADLEW) ':projects-app:core:deploy' -x 'test' -x 'check' -q

@@ -9,6 +9,7 @@ plugins {
 dependencyManagement {
 	imports {
 		mavenBom "org.springframework.boot:spring-boot-dependencies:$springBootVersion"
+		mavenBom "org.springframework.modulith:spring-modulith-bom:$springModulithVersion"
 	}
 }
 

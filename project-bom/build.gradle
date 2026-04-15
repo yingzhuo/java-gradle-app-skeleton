@@ -9,9 +9,6 @@ javaPlatform {
 
 dependencies {
 	constraints {
-		// spring-modulith
-		api "org.springframework.modulith:spring-modulith-bom:$springModulithVersion"
-
 		// 通用工具
 		api 'com.google.guava:guava:33.5.0-jre'
 

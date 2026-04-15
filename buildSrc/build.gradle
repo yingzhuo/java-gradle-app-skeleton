@@ -5,7 +5,6 @@ plugins {
 description = '构建逻辑'
 
 ['../gradle.properties', './gradle.properties']
-	.stream()
 	.forEach { filePath ->
 		var file = file(filePath)
 		if (file.exists() && file.isFile()) {

@@ -18,7 +18,7 @@ spring:
   main:
     web-application-type: servlet
     banner-mode: log
-    allow-bean-definition-overriding: true
+    allow-bean-definition-overriding: false
     allow-circular-references: false
     log-startup-info: true
     cloud-platform: none
@@ -111,7 +111,7 @@ management:
     web:
       base-path: "/actuator"
       exposure:
-        include: "*"
+        include: [ "health", "info", "metrics", "env", "beans" ]
 
 # ----------------------------------------------------------------------------------------------------------------------
 # Actuator - info
@@ -132,7 +132,7 @@ application: { }
 # ----------------------------------------------------------------------------------------------------------------------
 springdoc:
   api-docs:
-    enabled: true
+    enabled: false
     path: "/v3/api-docs"
   swagger-ui:
     enabled: true

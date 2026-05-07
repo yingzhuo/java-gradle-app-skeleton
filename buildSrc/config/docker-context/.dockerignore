@@ -1,2 +1,5 @@
 .dockerignore
 Dockerfile
+**/.git
+**/build
+**/.gradle

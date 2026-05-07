@@ -15,5 +15,5 @@ git commit -m "$TIMESTAMP"
 
 REMOTES=$(git remote)
 for remote in $REMOTES; do
-    git push "$remote" HEAD --force
+    git push "$remote" HEAD
 done

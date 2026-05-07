@@ -2,11 +2,11 @@ ifeq ($(OS), Windows_NT)
     MAKEFILE_PATH := $(dir $(abspath $(lastword $(MAKEFILE_LIST))))
     GRADLEW := $(MAKEFILE_PATH)/gradlew.bat
 else
-    MAKEFILE_PATH := $(shell dirname $(realpath $(firstword $(MAKEFILE_LIST))))
+		MAKEFILE_PATH := $(shell dirname $(realpath $(firstword $(MAKEFILE_LIST))))
 		GRADLEW := $(MAKEFILE_PATH)/gradlew
 endif
 
-.DEFAULT_GOAL=usage
+.DEFAULT_GOAL := usage
 
 .PHONY: usage \
 	clean purge rebuild-build-logic \

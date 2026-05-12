@@ -51,6 +51,9 @@ dependencies {
 	// spring-security
 	testImplementation 'org.springframework.security:spring-security-test'
 
+	// swagger
+	api 'org.springdoc:springdoc-openapi-starter-webmvc-ui'
+
 	// lombok
 	compileOnly 'org.projectlombok:lombok'
 	annotationProcessor 'org.projectlombok:lombok'

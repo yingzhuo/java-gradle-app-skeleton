@@ -15,5 +15,8 @@ dependencies {
 		// mapstruct
 		api 'org.mapstruct:mapstruct:1.6.3'
 		api 'org.mapstruct:mapstruct-processor:1.6.3'
+
+		// swagger
+		api 'org.springdoc:springdoc-openapi-starter-webmvc-ui:3.0.3'
 	}
 }

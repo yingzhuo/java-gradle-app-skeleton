@@ -22,6 +22,7 @@ dependencies {
 
 	// 本项目其他子工程
 	api project(':projects-lib:addon-common')
+	api project(':projects-lib:addon-model')
 
 	// spring-boot
 	testImplementation 'org.springframework.boot:spring-boot-starter-test'

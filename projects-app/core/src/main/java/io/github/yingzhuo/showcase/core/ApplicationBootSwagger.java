@@ -16,18 +16,18 @@
 
 package io.github.yingzhuo.showcase.core;
 
+import io.github.yingzhuo.showcase.misc.SwaggerConstants;
 import io.swagger.v3.oas.annotations.enums.SecuritySchemeIn;
 import io.swagger.v3.oas.annotations.enums.SecuritySchemeType;
 import io.swagger.v3.oas.annotations.security.SecurityScheme;
 import io.swagger.v3.oas.models.OpenAPI;
 import io.swagger.v3.oas.models.info.Info;
-import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 
 @Configuration
 @SecurityScheme(
-	name = "AuthHeader",
+	name = SwaggerConstants.AUTH_HEADER,
 	type = SecuritySchemeType.APIKEY,
 	in = SecuritySchemeIn.HEADER,
 	paramName = "X-Auth-Token",
@@ -35,16 +35,19 @@ import org.springframework.context.annotation.Configuration;
 )
 public class ApplicationBootSwagger {
 
-	@Value("${spring.application.version}")
-	private String applicationVersion;
+//	@ApplicationName
+//	private String applicationName;
+
+//	@ApplicationVersion
+//	private String applicationVersion;
 
 	@Bean
 	public OpenAPI customOpenAPI() {
 		return new OpenAPI()
 			.info(new Info()
-				.title("项目API文档标题")
-				.description("这里是项目的详细接口文档描述")
-				.version(this.applicationVersion)
+				.title("aa")
+				.description("RESTful API documentation.")
+				.version("v1.0")
 			);
 	}
 

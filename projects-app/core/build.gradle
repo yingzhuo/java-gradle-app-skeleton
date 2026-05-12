@@ -21,8 +21,8 @@ dependencies {
 	annotationProcessor platform(project(':project-bom'))
 
 	// 本项目其他子工程
+	//api project(':projects-lib:addon-model')
 	api project(':projects-lib:addon-common')
-	api project(':projects-lib:addon-model')
 
 	// spring-boot
 	testImplementation 'org.springframework.boot:spring-boot-starter-test'
@@ -37,10 +37,10 @@ dependencies {
 		exclude group: 'org.springframework.boot', module: 'spring-boot-jackson'
 	}
 	api 'org.springframework.boot:spring-boot-jackson2'
-	developmentOnly 'org.springframework.boot:spring-boot-devtools'
+	//developmentOnly 'org.springframework.boot:spring-boot-devtools'
 
 	// spring-modulith
-	api 'org.springframework.modulith:spring-modulith-starter-core'
+	//api 'org.springframework.modulith:spring-modulith-starter-core'
 
 	// groovy
 	api 'org.apache.groovy:groovy'

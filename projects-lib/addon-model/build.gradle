@@ -4,7 +4,7 @@ plugins {
 	id 'buildlogic.license-conventions'
 }
 
-description = '通用工具及杂项'
+description = '模型'
 
 dependencies {
 
@@ -37,4 +37,7 @@ dependencies {
 
 	// slf4j
 	api 'org.slf4j:slf4j-api'
+
+	// swagger
+	api 'org.springdoc:springdoc-openapi-starter-webmvc-ui'
 }

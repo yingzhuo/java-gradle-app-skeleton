@@ -2,7 +2,7 @@ plugins {
 	id 'java-platform'
 }
 
-description = '本项目物料清单'
+description = '物料清单(BOM)'
 
 javaPlatform {
 }

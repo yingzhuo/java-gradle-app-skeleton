@@ -31,7 +31,7 @@ public class ApplicationBoot {
 	 * @param args 启动参数
 	 */
 	public static void main(String[] args) {
-		System.setProperty("spring.devtools.restart.enabled", "true");
+		//System.setProperty("spring.devtools.restart.enabled", "true");
 		SpringApplication.run(ApplicationBoot.class, args);
 	}
 

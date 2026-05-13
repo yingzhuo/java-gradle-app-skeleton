@@ -16,6 +16,8 @@
 
 package io.github.yingzhuo.showcase.core;
 
+import io.github.yingzhuo.showcase.misc.ApplicationName;
+import io.github.yingzhuo.showcase.misc.ApplicationVersion;
 import io.github.yingzhuo.showcase.misc.SwaggerConstants;
 import io.swagger.v3.oas.annotations.enums.SecuritySchemeIn;
 import io.swagger.v3.oas.annotations.enums.SecuritySchemeType;
@@ -35,19 +37,19 @@ import org.springframework.context.annotation.Configuration;
 )
 public class ApplicationBootSwagger {
 
-//	@ApplicationName
-//	private String applicationName;
+	@ApplicationName
+	private String applicationName;
 
-//	@ApplicationVersion
-//	private String applicationVersion;
+	@ApplicationVersion
+	private String applicationVersion;
 
 	@Bean
 	public OpenAPI customOpenAPI() {
 		return new OpenAPI()
 			.info(new Info()
-				.title("aa")
+				.title(applicationName)
 				.description("RESTful API documentation.")
-				.version("v1.0")
+				.version("v" + applicationVersion)
 			);
 	}
 
